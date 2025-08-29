@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Virtual Try-On</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.16.0"
+  }
+}
+</script>
+<style>
+  :root {
+    --bg-color: hsl(230 20% 8%);
+    --panel-bg: hsl(230 20% 12% / 0.6);
+    --panel-border: hsl(230 20% 20% / 0.8);
+    --accent-glow: hsl(197 90% 58% / 0.4);
+    --accent-glow-intense: hsl(197 90% 58% / 0.7);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 50% 0%, hsl(230 20% 11%) 0%, var(--bg-color) 40%);
+  }
+  .aurora-panel {
+    background-color: var(--panel-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--panel-border);
+    box-shadow: 0 8px 32px 0 hsl(230 20% 5% / 0.37);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  button, a, div {
+    transition: all 0.2s ease-in-out;
+  }
+</style>
+</head>
+<body class="bg-slate-900 text-slate-100">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
